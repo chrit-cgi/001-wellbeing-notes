@@ -1,0 +1,62 @@
+/* ── Settings page ───────────────────────────────────── */
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-md);
+  height: var(--header-height);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.settings-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.settings-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  padding-bottom: calc(var(--nav-height) + var(--space-md));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.settings-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.settings-section-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-md);
+}
+
+.account-info { display: flex; flex-direction: column; gap: var(--space-sm); }
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-base);
+}
+
+.account-row dt {
+  color: var(--color-text-muted);
+}
+
+.account-row dd {
+  font-weight: 500;
+  text-align: right;
+  word-break: break-all;
+}

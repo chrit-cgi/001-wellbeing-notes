@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>beingc</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/notes.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="notes-header">
+      <div class="menu-wrapper">
+        <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6"  x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <nav class="action-menu" id="action-menu" hidden>
+          <button id="signout-btn">Sign out</button>
+        </nav>
+      </div>
+      <input
+        type="search"
+        id="search"
+        class="search-bar"
+        placeholder="Search notes…"
+        aria-label="Search notes"
+        autocomplete="off"
+      />
+    </header>
+
+    <main class="notes-main" id="notes-main">
+      <ul class="notes-list" id="notes-list" aria-label="Notes"></ul>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <p class="empty-icon">📝</p>
+        <p class="empty-title">No notes yet</p>
+        <p class="empty-sub">Tap + to write your first note</p>
+      </div>
+
+      <div class="skeleton-list" id="skeleton-list" aria-hidden="true">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </main>
+
+    <button class="fab" id="new-note-btn" aria-label="New note">＋</button>
+
+    <nav class="bottom-nav" role="navigation" aria-label="Main">
+      <a href="./notes.html" aria-current="page">All</a>
+      <a href="./settings.html">Settings</a>
+    </nav>
+  </div>
+
+  <script type="module" src="../js/notes.js"></script>
+</body>
+</html>

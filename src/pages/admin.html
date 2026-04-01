@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>beingc — Admin</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="admin-header">
+      <h1 class="admin-title">Users</h1>
+      <div class="header-actions">
+        <button class="btn btn-primary" id="create-user-btn">+ New user</button>
+        <button class="btn" id="logout-btn">Sign out</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="skeleton-list" id="skeleton-list" aria-hidden="true">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <p class="empty-title">No users found</p>
+      </div>
+
+      <table class="user-table" id="user-table" hidden>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+            <th scope="col"><span class="sr-only">Actions</span></th>
+          </tr>
+        </thead>
+        <tbody id="user-tbody"></tbody>
+      </table>
+    </main>
+
+    <!-- Create / Edit user form dialog -->
+    <dialog id="user-form" aria-label="User form">
+      <h2 id="form-title">New user</h2>
+      <form id="user-form-el" novalidate>
+        <div class="form-field">
+          <label for="f-first">First name</label>
+          <input type="text" id="f-first" autocomplete="given-name" />
+        </div>
+        <div class="form-field">
+          <label for="f-last">Last name</label>
+          <input type="text" id="f-last" autocomplete="family-name" />
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="f-email" required autocomplete="email" />
+        </div>
+        <div class="form-field" id="password-field">
+          <label for="f-password">Password <span aria-hidden="true">*</span></label>
+          <input type="password" id="f-password" autocomplete="new-password" />
+        </div>
+        <p class="form-error" id="form-error" hidden></p>
+        <div class="dialog-actions">
+          <button type="button" class="btn" id="form-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="form-submit-btn">Create</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- Delete confirmation -->
+    <dialog id="delete-confirm" aria-label="Confirm deletion">
+      <h2>Delete user?</h2>
+      <p id="delete-confirm-msg"></p>
+      <div class="dialog-actions">
+        <button class="btn" id="delete-cancel-btn">Cancel</button>
+        <button class="btn btn-danger" id="delete-confirm-btn">Delete</button>
+      </div>
+    </dialog>
+  </div>
+
+  <script type="module" src="../js/admin.js"></script>
+</body>
+</html>

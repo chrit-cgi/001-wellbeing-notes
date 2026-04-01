@@ -1,0 +1,41 @@
+:root {
+  /* Colours */
+  --color-bg:           #f8f7f4;
+  --color-surface:      #ffffff;
+  --color-border:       #e2ddd7;
+  --color-text:         #1a1714;
+  --color-text-muted:   #6b6560;
+  --color-accent:       #4a7c59;
+  --color-accent-dark:  #365c42;
+  --color-danger:       #c0392b;
+  --color-danger-dark:  #922b21;
+  --color-active:       #27ae60;
+  --color-inactive:     #c0392b;
+
+  /* Wellbeing slider */
+  --color-slider-low:   #8b4513; /* brown  — bottom / low score */
+  --color-slider-high:  #ffd700; /* yellow — top    / high score */
+
+  /* Spacing */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+
+  /* Typography */
+  --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+
+  /* Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Layout */
+  --nav-height:    3.25rem;
+  --header-height: 3rem;
+  --slider-width:  2.5rem;
+}

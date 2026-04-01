@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>beingc — Note</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/note.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="offline-banner" id="offline-banner" hidden role="alert">
+      You are offline — saving is disabled
+    </div>
+
+    <header class="note-header">
+      <button class="icon-btn" id="info-btn" aria-label="About wellbeing score">
+        <span aria-hidden="true">ⓘ</span>
+      </button>
+      <span class="note-date" id="note-date"></span>
+      <button class="icon-btn" id="menu-btn" aria-label="Note actions" aria-expanded="false" aria-haspopup="menu">
+        <span aria-hidden="true">⋮</span>
+      </button>
+    </header>
+
+    <div class="note-body-wrap">
+      <textarea
+        id="body"
+        class="note-body"
+        placeholder="How are you doing today?"
+        aria-label="Note text"
+        autofocus
+      ></textarea>
+
+      <div class="slider-wrap">
+        <span class="slider-label-top" aria-hidden="true">😊</span>
+        <input
+          type="range"
+          id="score"
+          class="wellbeing-slider"
+          min="0"
+          max="10"
+          step="1"
+          value="5"
+          role="slider"
+          aria-label="Wellbeing score"
+          aria-valuemin="0"
+          aria-valuemax="10"
+          aria-valuenow="5"
+          orient="vertical"
+        />
+        <span class="slider-label-bot" aria-hidden="true">😔</span>
+      </div>
+    </div>
+
+    <footer class="note-footer">
+      <button class="btn btn-primary" id="save-btn">Save</button>
+    </footer>
+
+    <!-- Action menu -->
+    <div class="action-menu" id="action-menu" role="menu" hidden>
+      <button class="action-item" id="discard-btn" role="menuitem">Discard changes</button>
+      <button class="action-item action-item--danger" id="delete-btn" role="menuitem">Delete note</button>
+    </div>
+
+    <!-- Info modal -->
+    <dialog id="info-modal" aria-label="About wellbeing score">
+      <h2>Wellbeing score</h2>
+      <p>
+        The slider on the right rates how you feel today on a scale from
+        <strong>0</strong> (lowest) to <strong>10</strong> (highest).
+        It helps you track your mood over time alongside your notes.
+      </p>
+      <div class="dialog-actions">
+        <button class="btn btn-primary" id="info-close-btn">Got it</button>
+      </div>
+    </dialog>
+
+    <!-- Delete confirmation -->
+    <dialog id="delete-confirm" aria-label="Confirm deletion">
+      <h2>Delete note?</h2>
+      <p>This cannot be undone.</p>
+      <div class="dialog-actions">
+        <button class="btn" id="delete-cancel-btn">Cancel</button>
+        <button class="btn btn-danger" id="delete-confirm-btn">Delete</button>
+      </div>
+    </dialog>
+  </div>
+
+  <script type="module" src="../js/note.js"></script>
+</body>
+</html>

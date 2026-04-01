@@ -1,0 +1,193 @@
+/* ── Note editor page ─────────────────────────────────── */
+
+.note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  height: var(--header-height);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.note-date {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.icon-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  transition: background 0.15s;
+}
+
+.icon-btn:hover { background: var(--color-bg); }
+.icon-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+/* ── Body + slider layout ────────────────────────────── */
+
+.note-body-wrap {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.note-body {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: var(--space-md);
+  padding-right: calc(var(--slider-width) + var(--space-md) * 2);
+  background: var(--color-surface);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ── Vertical wellbeing slider ───────────────────────── */
+
+.slider-wrap {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(var(--slider-width) + var(--space-md));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-md) 0;
+  border-left: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.slider-label-top,
+.slider-label-bot {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.wellbeing-slider {
+  /* Vertical orientation */
+  writing-mode: vertical-lr;
+  direction: rtl;         /* low value at bottom, high at top */
+  appearance: slider-vertical;
+  -webkit-appearance: slider-vertical;
+
+  width: var(--slider-width);
+  height: 160px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Chromium track gradient (bottom = brown, top = yellow) */
+.wellbeing-slider::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to top,
+    var(--color-slider-low),
+    var(--color-slider-high)
+  );
+  border-radius: 4px;
+  width: 6px;
+}
+
+.wellbeing-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-text-muted);
+  cursor: grab;
+  margin-left: -8px;
+  transition: border-color 0.15s;
+}
+
+.wellbeing-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  border-color: var(--color-accent);
+}
+
+/* Firefox */
+.wellbeing-slider::-moz-range-track {
+  background: linear-gradient(
+    to top,
+    var(--color-slider-low),
+    var(--color-slider-high)
+  );
+  border-radius: 4px;
+  width: 6px;
+}
+
+.wellbeing-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-text-muted);
+  cursor: grab;
+}
+
+.wellbeing-slider:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+
+.note-footer {
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ── Action menu (three-dot) ─────────────────────────── */
+
+.action-menu {
+  position: absolute;
+  top: var(--header-height);
+  right: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 20;
+  min-width: 10rem;
+  overflow: hidden;
+}
+
+.action-menu[hidden] { display: none; }
+
+.action-item {
+  display: block;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  transition: background 0.12s;
+}
+
+.action-item:hover { background: var(--color-bg); }
+
+.action-item--danger { color: var(--color-danger); }
+
+.action-item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>beingc — Settings</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/settings.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="settings-header">
+      <h1 class="settings-title">Settings</h1>
+    </header>
+
+    <main class="settings-main">
+      <section class="settings-card" aria-label="Account information">
+        <h2 class="settings-section-title">Account</h2>
+        <dl class="account-info">
+          <div class="account-row">
+            <dt>Name</dt>
+            <dd id="user-name">—</dd>
+          </div>
+          <div class="account-row">
+            <dt>Email</dt>
+            <dd id="user-email">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="settings-card" aria-label="Session">
+        <h2 class="settings-section-title">Session</h2>
+        <button class="btn btn-danger" id="logout-btn">Sign out</button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" role="navigation" aria-label="Main">
+      <a href="./notes.html">All</a>
+      <a href="./settings.html" aria-current="page">Settings</a>
+    </nav>
+  </div>
+
+  <script type="module" src="../js/settings.js"></script>
+</body>
+</html>

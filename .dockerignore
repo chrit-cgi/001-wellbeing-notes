@@ -1,0 +1,9 @@
+node_modules/
+.git/
+data/
+.env
+*.log
+coverage/
+specs/
+.specify/
+.claude/
