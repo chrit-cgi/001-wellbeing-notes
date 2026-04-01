@@ -20,6 +20,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export const app = express()
 
+app.set('trust proxy', 1)
 app.use(express.json())
 
 // Session middleware (used by local auth adapter; harmless when using Clerk)
