@@ -21,6 +21,7 @@ RUN npm ci --omit=dev
 # Copy built frontend and server code
 COPY --from=builder /app/dist ./dist
 COPY server ./server
+COPY scripts ./scripts
 
 # Persistent data volume for SQLite
 VOLUME ["/app/data"]

@@ -58,8 +58,30 @@ if (isMain) {
   const { initDb } = await import('./db.js')
   const PORT = process.env.PORT ?? 3000
   initDb()
+  await seedAdminIfConfigured()
   app.listen(PORT, '0.0.0.0', () => {
     // eslint-disable-next-line no-console
     console.log(`beingc running on http://0.0.0.0:${PORT}`)
   })
+}
+
+async function seedAdminIfConfigured() {
+  const email    = process.env.ADMIN_EMAIL
+  const password = process.env.ADMIN_PASSWORD
+  if (!email || !password) return
+
+  const { getDb } = await import('./db.js')
+  const { createUser } = await import('./auth/local.js')
+  const db = getDb()
+  const existing = db.prepare('SELECT id FROM users WHERE role = ?').get('admin')
+  if (existing) return
+
+  try {
+    const { userId } = await createUser({ email, password, role: 'admin' })
+    // eslint-disable-next-line no-console
+    console.log(`Seeded admin user: ${email} (id: ${userId})`)
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(`Failed to seed admin: ${err.message}`)
+  }
 }
